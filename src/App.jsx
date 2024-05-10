@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import MailBoxUser from "./componetns/MailBox/MailBoxUser";
 import MeetExspressUser from "./componetns/MailBox/meestExpress.json";
@@ -6,7 +6,17 @@ import { nanoid } from "nanoid";
 import MailBoxForm from "./componetns/MailBoxForm/MailBoxForm";
 
 function App() {
-  const [users, setUsers] = useState(MeetExspressUser);
+  const [users, setUsers] = useState(() => {
+    const stringUser = localStorage.getItem('users')
+    if(!stringUser) return MeetExspressUser
+    const parseUser = JSON.parse(stringUser)
+    return parseUser
+  });
+
+  useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [users])
+
 
   const onAddUser = (formData) => {
     const finalUser = {
