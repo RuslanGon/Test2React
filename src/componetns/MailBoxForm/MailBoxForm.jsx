@@ -1,19 +1,27 @@
 
-
 const MailBoxForm = () => {
+
+const handleSubmit = (event) => {
+event.preventDefault()
+const userEmail = event.currentTarget.elements.userEmail.value
+const userName = event.currentTarget.elements.userName.value
+console.log(userEmail, userName);
+
+}
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <h2>Add new user</h2>
         <label>
             <span>user email</span>
             <br />
-            <input type="email" placeholder="email"/>
+            <input type="email" name="userEmail" placeholder="email" required/>
         </label>
         <br />
         <label>
             <span>user name</span>
             <br />
-            <input type="name" placeholder="name"/>
+            <input type="name" name="userName" placeholder="name"/>
         </label>
         <br />
         <button type="submit">new contact</button>
