@@ -1,20 +1,24 @@
 
-
+import { useState } from 'react';
 import './App.css'
 import MailBoxUser from './componetns/MailBox/MailBoxUser';
-// import DrinksCounter from './componetns/DrinksCounter/DrinksCounter'
-// import DrinksValue from './componetns/DrinksValue/DrinksValue'
-// import MailBoxUser from './componetns/MailBox/MailBoxUser'
 import MeetExspressUser from './componetns/MailBox/meestExpress.json'
-// import NovaPoshtasUser from './componetns/MailBox/novaPoshta.json'
-// import UkrPoshtaUser from './componetns/MailBox/ukrPoshta.json'
+
 
 function App() {
-  
+
+  const [users, setUsers] = useState(MeetExspressUser)
+  const onAddUser = (formData) => {
+  const finalUser = {
+    ...formData,
+    
+  } 
+
+  }
 
   return (
     <div>
-   <MailBoxUser boxUsers={MeetExspressUser} boxTitle='Meest Express' />
+   <MailBoxUser boxUsers={users} boxTitle='Meest Express' />
     </div>
   );
 }
