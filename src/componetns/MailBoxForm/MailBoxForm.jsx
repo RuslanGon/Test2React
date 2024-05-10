@@ -15,6 +15,8 @@ const MailBoxForm = () => {
             <br />
             <input type="name" placeholder="name"/>
         </label>
+        <br />
+        <button type="submit">new contact</button>
     </form>
   )
 }
