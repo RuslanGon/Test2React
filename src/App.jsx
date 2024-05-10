@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 import MailBoxForm from "./componetns/MailBoxForm/MailBoxForm";
 
 function App() {
+  const [filter, setFilter] = useState('')
   const [users, setUsers] = useState(() => {
     const stringUser = localStorage.getItem('users')
     if(!stringUser) return MeetExspressUser
@@ -31,11 +32,24 @@ function App() {
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
   };
 
+const onChangeUser = (event) => {
+  setFilter(event.target.value)
+}
+
+const filteredUsers = users.filter((user) =>
+  user.userName.toLowerCase().includes(filter.toLowerCase())|| 
+  user.userEmail.toLowerCase().includes(filter.toLowerCase())
+);
+
   return (
     <div>
       <MailBoxForm onAddUser={onAddUser} />
+      <div>
+        <h3>Search by name or email</h3>
+        <input type="text" value={filter} placeholder="Search" onChange={onChangeUser}/>
+      </div>
       <MailBoxUser
-        boxUsers={users}
+        boxUsers={filteredUsers}
         boxTitle="Meest Express"
         onDeletUser={onDeletUser}
       />
