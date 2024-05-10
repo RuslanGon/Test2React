@@ -2,12 +2,18 @@
 
 const MailBoxListItem = ({user}) => {
   return (
-    <>
-    <li>userEmail: {user.userEmail}</li>
-    <li>userName: {user.userName}</li>
-    </>
+    
+    <li>
+      <p>Email: {user.userEmail}</p>
+      <p>Name: {user.userName}</p>
+
+    </li>
+   
+    
   )
 }
 
 
 export default MailBoxListItem
+
+
