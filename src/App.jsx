@@ -48,6 +48,7 @@ const filteredUsers = users.filter((user) =>
         <h3>Search by name or email</h3>
         <input type="text" value={filter} placeholder="Search" onChange={onChangeUser}/>
       </div>
+      <br />
       <MailBoxUser
         boxUsers={filteredUsers}
         boxTitle="Meest Express"
