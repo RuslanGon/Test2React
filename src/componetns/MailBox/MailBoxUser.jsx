@@ -1,14 +1,16 @@
+import css from "../MailBox/MailBoxUser.module.css";
+import MailBoxListItem from "../MailBoxListItem/MailBoxListItem";
 
-import css from '../MailBox/MailBoxUser.module.css'
-import MailBoxList from '../MailBoxList/MailBoxList';
-
-const MailBoxUser = ({ boxTitle,boxUsers  }) => {
-   
+const MailBoxUser = ({ boxTitle, boxUsers }) => {
   return (
     <div className={css.mailbox}>
       <h2 className={css.title}>{boxTitle}</h2>
-     
-      <MailBoxList boxUsers={boxUsers} />
+      <ul>
+        {Array.isArray(boxUsers) &&
+          boxUsers.map((user) => {
+            return <MailBoxListItem user={user} key={user.id} />;
+          })}
+      </ul>
     </div>
   );
 };
