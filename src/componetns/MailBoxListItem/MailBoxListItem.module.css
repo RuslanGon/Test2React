@@ -4,12 +4,12 @@
 }
 
 .color {
-    width: 6px;
-    height: 6px;
-   
-   
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    margin-left: 6px;
 }
 
 .btn {
-    background-color: brown;
+    background-color: red;
 }
